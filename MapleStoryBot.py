@@ -23,7 +23,6 @@ def deleteTags(htmls):
         htmls[a] = re.sub('<.+?>','',str(htmls[a]),0).strip()
     return htmls
 
-
 @client.event # Use these decorator to register an event.
 async def on_ready(): # on_ready() event : when the bot has finised logging in and setting things up
     await client.change_presence(status=discord.Status.online, activity=discord.Game("Type !help or !도움말 for help"))
@@ -57,7 +56,7 @@ async def on_message(message): # on_message() event : when the bot has recieved 
                              icon_url='https://avatars2.githubusercontent.com/u/45956041?s=460&u=1caf3b112111cbd9849a2b95a88c3a8f3a15ecfa&v=4')
             await message.channel.send("Error : Incorrect command usage ", embed=embed)
 
-        elif len(bs.find('tr', {'class': 'search_com_chk'}).find('a', {'href': re.compile('\/Common\/Character\/Detail\/[A-Za-z0-9%?=]*')})) == 0:
+        elif bs.find('tr', {'class': 'search_com_chk'}) == None:
             embed = discord.Embed(title="Nickname not exist", description="", color=0x5CD1E5)
             embed.add_field(name="해당 닉네임의 플레이어가 존재하지 않습니다.", value="플레이어 이름을 확인해주세요", inline=False)
             embed.set_footer(text='Service provided by Hoplin.',
@@ -89,7 +88,7 @@ async def on_message(message): # on_message() event : when the bot has recieved 
             for inf in RankingInformation:
                 infoList.append(inf.text)
             embed = discord.Embed(title="Player " + playerNickname + "'s information search from nexon.com", description=infoList[0] + " | " +infoList[1] + " | " + "Server : " + infoList[2], color=0x5CD1E5)
-            embed.add_field(name="Click on the link below to view more information.", value = mapleLink + characterRankingLink, inline=False)
+            embed.add_field(name="Click on the link below to view more information.", value = mapleLink + personalRankingPageURL, inline=False)
             embed.add_field(name="Overall Ranking",value=infoList[4], inline=True)
             embed.add_field(name="World Ranking", value=infoList[6], inline=True)
             embed.add_field(name="Job Ranking", value=infoList[8], inline=True)
