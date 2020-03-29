@@ -1,3 +1,6 @@
+#This code and description is written by Hoplin
+#This code is written with API version 1.0.0(Rewirte-V)
+#No matter to use it as non-commercial.
 
 import discord
 import asyncio
