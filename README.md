@@ -7,6 +7,11 @@ Discord Bot : Maple Story Player Information Search Bot
 
 3 . What for? : For maple story user to find their character's information quickly through discord
 ***
+  - Patch Note 20200329
+    
+    - Add Union Level.
+
+***
 
   - !메이플 (nickname)
   
