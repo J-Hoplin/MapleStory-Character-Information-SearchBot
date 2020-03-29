@@ -10,4 +10,4 @@ Discord Bot : Maple Story Player Information Search Bot
 
   - !메이플 (nickname)
   
-    ![img](https://scontent-ssn1-1.xx.fbcdn.net/v/t1.0-9/91204065_1165226747153890_1117385245847453696_n.jpg?_nc_cat=100&_nc_sid=8024bb&_nc_ohc=bPs7N6jI5pwAX80bsEE&_nc_ht=scontent-ssn1-1.xx&oh=5402626d11c7e25ff1d1384ac2e83b2d&oe=5EA651A1)
+    ![img](https://scontent-ssn1-1.xx.fbcdn.net/v/t1.0-9/91386471_1165368690473029_8115997036924370944_n.jpg?_nc_cat=109&_nc_sid=8024bb&_nc_ohc=-A9Sl_s0VbkAX8ZpiBH&_nc_ht=scontent-ssn1-1.xx&oh=b266846922ab4e6c797648f016b57737&oe=5EA52B60)
