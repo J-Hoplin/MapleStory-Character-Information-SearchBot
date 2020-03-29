@@ -79,7 +79,7 @@ async def on_message(message): # on_message() event : when the bot has recieved 
 
             popularityInfo = bs.find('span',{'class' : 'pop_data'}).text.strip()
             print(popularityInfo)
-            ''' Can't Embed Character's image because image size is too small
+            ''' Can't Embed Character's image. Gonna fix it after patch note
             #Character image
             getCharacterImage = bs.find('img',{'src': re.compile('https\:\/\/avatar\.maplestory\.nexon\.com\/Character\/[A-Za-z0-9%?=/]*')})['src']
             '''
