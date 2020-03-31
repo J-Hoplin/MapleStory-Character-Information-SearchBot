@@ -1,6 +1,3 @@
-#This code and description is written by Hoplin
-#This code is written with API version 1.0.0(Rewirte-V)
-#No matter to use it as non-commercial.
 
 import discord
 import asyncio
@@ -44,12 +41,16 @@ async def on_message(message): # on_message() event : when the bot has recieved 
         # Maplestroy base link
         mapleLink = "https://maplestory.nexon.com"
         # Maplestory character search base link
-        mapleCharacterSearch = "https://maplestory.nexon.com/Ranking/Union?c="
+        mapleCharacterSearch = "https://maplestory.nexon.com/Ranking/World/Total?c="
+        mapleUnionLevelSearch = "https://maplestory.nexon.com/Ranking/Union?c="
+
 
         playerNickname = ''.join((message.content).split(' ')[1:])
         html = urlopen(mapleCharacterSearch + quote(playerNickname))  # Use quote() to prevent ascii error
         bs = BeautifulSoup(html, 'html.parser')
 
+        html2 = urlopen(mapleUnionLevelSearch + quote(playerNickname))
+        bs2 = BeautifulSoup(html2,'html.parser')
 
         if len(message.content.split(" ")) == 1:
             embed = discord.Embed(title="닉네임이 입력되지 않았습니다", description="", color=0x5CD1E5)
@@ -70,8 +71,11 @@ async def on_message(message): # on_message() event : when the bot has recieved 
             # Get to the character info page
             characterRankingLink = bs.find('tr', {'class': 'search_com_chk'}).find('a', {'href': re.compile('\/Common\/Character\/Detail\/[A-Za-z0-9%?=]*')})['href']
             #Parse Union Level
-            characterUnionRanking = bs.find('tr', {'class': 'search_com_chk'}).findAll('td')[2].text
-
+            characterUnionRanking = bs2.find('tr', {'class': 'search_com_chk'})
+            if characterUnionRanking == None:
+                pass
+            else:
+                characterUnionRanking = characterUnionRanking.findAll('td')[2].text
             html = urlopen(mapleLink + characterRankingLink)
             bs = BeautifulSoup(html, 'html.parser')
 
@@ -97,7 +101,10 @@ async def on_message(message): # on_message() event : when the bot has recieved 
             embed.add_field(name="World Ranking", value=infoList[6], inline=True)
             embed.add_field(name="Job Ranking", value=infoList[8], inline=True)
             embed.add_field(name="Popularity Ranking", value=infoList[10] + "( " +popularityInfo + " )", inline=True)
-            embed.add_field(name="Maple Union", value=infoList[12] + "( LV." + characterUnionRanking + " )", inline=True)
+            if characterUnionRanking == None:
+                embed.add_field(name="Maple Union", value=infoList[12],inline=True)
+            else:
+                embed.add_field(name="Maple Union", value=infoList[12] + "( LV." + characterUnionRanking + " )", inline=True)
             embed.add_field(name="Achivement Ranking", value=infoList[14], inline=True)
             embed.set_thumbnail(url='https://ssl.nx.com/s2/game/maplestory/renewal/common/logo.png')
             embed.set_footer(text='Service provided by Hoplin.',icon_url='https://avatars2.githubusercontent.com/u/45956041?s=460&u=1caf3b112111cbd9849a2b95a88c3a8f3a15ecfa&v=4')
