@@ -10,6 +10,10 @@ Discord Bot : Maple Story Player Information Search Bot
   - Patch Note 20200329
     
     - Add Union Level.
+  
+  - Patch Note 20200331
+    
+    - Bug Fix : Unable to search some players. Change some algorithms
 
 ***
 
